@@ -24,7 +24,7 @@ pprofplus.Start()
 
 使用示例，以及更多个性化配置的方法见： [example/example.go](https://github.com/q191201771/pprofplus/blob/master/example/example.go)
 
-支持的配置项见：[pprofplus.go](https://github.com/q191201771/pprofplus/blob/master/pprofplus.go#L5)
+支持的配置项见：[pprofplus.go](https://github.com/q191201771/pprofplus/blob/master/pkg/pprofplus/pprofplus.go#L5)
 
 #### 2. 启动dashboard展示程序（与被监控的进程在一台机器）：
 

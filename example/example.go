@@ -10,7 +10,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/q191201771/pprofplus"
+	"github.com/q191201771/pprofplus/pkg/pprofplus"
 	//"net/http"
 	//_ "net/http/pprof"
 	"os"
