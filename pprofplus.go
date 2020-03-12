@@ -33,19 +33,24 @@ type ModOption func(option *Option)
 
 var once sync.Once
 
-func Start(modOptions ...ModOption) {
+func Start(modOptions ...ModOption) error {
+	var err error
 	once.Do(func() {
-		start(modOptions...)
+		err = start(modOptions...)
 	})
+	return err
 }
 
-func start(modOptions ...ModOption) {
+func start(modOptions ...ModOption) error {
 	for _, mo := range modOptions {
 		mo(&option)
 	}
 
 	c := NewCapture(option.CaptureIntervalSec)
-	d, _ := NewDump(option.DumpDir, option.ServiceName)
+	d, err := NewDump(option.DumpDir, option.ServiceName)
+	if err != nil {
+		return err
+	}
 
 	go func() {
 		infoC := c.doAsync()
@@ -54,4 +59,6 @@ func start(modOptions ...ModOption) {
 			d.do(info)
 		}
 	}()
+
+	return nil
 }
