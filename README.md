@@ -17,14 +17,14 @@ Go runtime 内存相关的指标含义参见：https://pengrl.com/p/20031/
 #### 1. 被监控的进程中添加以下代码：
 
 ```golang
-import "github.com/q191201771/pprofplus"
+import "github.com/q191201771/pprofplus/pkg/pprofplus"
 
 pprofplus.Start()
 ```
 
 使用示例，以及更多个性化配置的方法见： [example/example.go](https://github.com/q191201771/pprofplus/blob/master/example/example.go)
 
-支持的配置项见：[pprofplus.go](https://github.com/q191201771/pprofplus/blob/master/pkg/pprofplus/pprofplus.go#L5)
+支持的配置项见：[pprofplus.go](https://github.com/q191201771/pprofplus/blob/master/pkg/pprofplus/pprofplus.go#L13)
 
 #### 2. 启动dashboard展示程序（与被监控的进程在一台机器）：
 
@@ -85,8 +85,10 @@ go-echarts的解决方案是通过上面的命令，将这些静态文件打包�
 
 ### TODO
 
+#### 整体
+
 - go mod 支持
-- pprofplus和pprofplus.bin的版本管理
+- pprofplus和pprofplus.bin的版本管理，包括数据的版本
 
 #### 采集端
 
@@ -103,7 +105,7 @@ go-echarts的解决方案是通过上面的命令，将这些静态文件打包�
 
 结合实际使用场景，增加更多的指标，并且可能还会添加内存以外的指标
 
-#### 其他
+### 其他
 
 欢迎提issues讨论。
 
