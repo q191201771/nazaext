@@ -24,5 +24,5 @@ if [ -d "../pprofplus.bin/" ];then
     cp output/* ../pprofplus.bin/
     GitCommitLog=`git log --pretty=oneline -n 1`
     GitCommitLog=${GitCommitLog//\'/\"}
-    echo ${GitCommitLog} >> ../pprofplus.bin/pprofplus.version
+    echo ${GitCommitLog} > ../pprofplus.bin/pprofplus.version
 fi
