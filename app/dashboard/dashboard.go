@@ -146,6 +146,9 @@ func requestHandler(writer http.ResponseWriter, _ *http.Request) {
 	}
 
 	line := charts.NewLine()
+	line.SetGlobalOptions(
+		charts.InitOpts{PageTitle: "pprofplus", Theme: charts.ThemeType.Infographic},
+	)
 	line.Title = "单位：" + memUnitBrief[memUnit]
 
 	line.AddXAxis(x)

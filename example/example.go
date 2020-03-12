@@ -11,6 +11,8 @@ package main
 import (
 	"fmt"
 	"github.com/q191201771/pprofplus"
+	//"net/http"
+	//_ "net/http/pprof"
 	"os"
 )
 
@@ -26,6 +28,11 @@ func main() {
 	//})
 
 	fmt.Println("an example show how service interact with pprofplus.")
+
+	// 被监控的程序依然可以使用http pprof，和pprofplus配合一块分析内存情况
+	// 注意，这里的端口不要和dashboard的重了
+	//http.ListenAndServe(":10002", nil)
+
 	ch := make(chan struct{})
 	<-ch
 }
