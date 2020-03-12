@@ -20,11 +20,11 @@ import "github.com/q191201771/pprofplus"
 pprofplus.Start()
 ```
 
-使用示例，以及更多个性化配置的方法见： example/example.go
+使用示例，以及更多个性化配置的方法见： [example/example.go](https://github.com/q191201771/pprofplus/blob/master/example/example.go)
 
-支持的配置项见：TODO
+支持的配置项见：[pprofplus.go](https://github.com/q191201771/pprofplus/blob/master/pprofplus.go#L5)
 
-#### 2. 启动dashboard展示程序：
+#### 2. 启动dashboard展示程序（与被监控的进程在一台机器）：
 
 ```shell
 ./dashboard
@@ -62,13 +62,13 @@ dashboard读取本地文件中的数据，将数据以http图表的方式返回�
 
 ### 编译dashboard注意事项
 
-如果你想对代码进行二次开发，https://github.com/q191201771/pprofplus.bin 中提供了编译好的dashboard可供直接使用。
+如果你不需要对代码进行二次开发，建议直接从 https://github.com/q191201771/pprofplus.bin 下载编译好的dashboard直接使用。
 
 如果自行编译dashboard，并且想要发布到非开发机器上使用。需在编译前执行以下操作（一次即可）：
 
 ```shell
-$ cd $GOPATH/src/github.com/chenjiandongx/go-echarts
 // Linux/MacOS
+$ cd $GOPATH/src/github.com/chenjiandongx/go-echarts
 $ ./doPackr.sh
 
 // Windows
@@ -76,12 +76,9 @@ $ cd %GOPATH%\src\github.com\chenjiandongx\go-echarts
 $ doPackr.bat
 ```
 
-这是因为第三方库go-echarts说白了是对前端echarts库的封装，它在运行时需要用到echarts的一些静态文件。
-
-在非开发机器上由于没有这些静态文件，会导致运行出错。
-
-go-echarts的解决方案是通过上面的命令，将这些静态文件打包成了go文件，这样就直接编译进宿主程序中了。
-
+这是因为第三方库go-echarts说白了是对前端echarts库的封装，它在运行时需要用到echarts的一些静态文件。  
+在非开发机器上由于没有这些静态文件，会导致运行出错。  
+go-echarts的解决方案是通过上面的命令，将这些静态文件打包成了go文件，这样就直接编译进宿主程序中了。  
 这其实也是我把dashboard独立出来的原因之一，不想让宿主程序依赖这个库。。
 
 ### TODO
@@ -100,7 +97,6 @@ go-echarts的解决方案是通过上面的命令，将这些静态文件打包�
     - 开始时间、结束时间，或者距离最近的时间段
 - 目前只读取固定目录下serviceName匹配的最新的那个文件，可支持指定特定文件，特定pid
 - 网页默认标题
-- 注意 go-echarts 发布前编译的问题
 
 #### 长远计划
 
