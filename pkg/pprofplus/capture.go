@@ -32,7 +32,7 @@ func (c *capture) doAsync() chan Info {
 			Pid: int32(os.Getpid()),
 		}
 
-		c.do(p)
+		ret <- c.do(p)
 
 		t := time.Tick(time.Second * time.Duration(c.captureIntervalSec))
 		for {
