@@ -12,7 +12,7 @@ pprofplus用于采集Go进程的各项内存指标（包含Go runtime内存管�
 
 ### 效果图
 
-![效果图](https://pengrl.com/images/post/20033_0.jpg)
+![效果图](https://pengrl.com/images/post/20033_1.jpg)
 
 - 进程VMS和RSS的含义参见：[《[译] linux内存管理之RSS和VSZ的区别》](https://pengrl.com/p/21292/)
 - Go runtime 内存相关的指标含义参见：[《Go pprof内存指标含义备忘录》](https://pengrl.com/p/20031/)
